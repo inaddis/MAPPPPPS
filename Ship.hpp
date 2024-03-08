@@ -43,4 +43,18 @@ class Ship {
     numCows--;
     
     std::cout << "we lost a cow :(" << std::endl;
+  }
+  void dropOffCow(const std::string& cowID) {
+    auto it = cowInventory.find(cowID);
+    if (it != cowInventory.end()) {
+      delete it->second;
+      cowInventory.erase(it);
+      numCows--;
+      std::cout << "Cow number " << cowID << " was dropped off." << std::endl;
+    }
+    else {
+      std::cout << "Error: Cow number " << cowID << " doesn't exist :|" << std::endl;
+    }
+  }
+
 };
