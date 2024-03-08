@@ -37,11 +37,10 @@ class Ship {
       return;
     }
 
-    std::cout << "Press Enter to drop off a random cow: ";
-    std::string input;
-    std::cin >> input;
-      
-    cowInventory.erase(cowInventory.size()/2);
+    auto it = std::next(cowInventory.begin(), cowInventory.size () / 2);
+    delete it->second;
+    cowInventory.erase(it);
     numCows--;
+    
     std::cout << "we lost a cow :(" << std::endl;
 };
