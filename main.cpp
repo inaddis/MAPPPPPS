@@ -10,7 +10,7 @@ int main() {
 
   while (true) {
     std::cout << "Menu: " << std::endl;
-    std::cout << "1. Create a ship\n2. Abduct a cow\n3. Self-Destruct (end program)" << std::endl;
+    std::cout << "1. Create a ship\n2. Abduct a cow\n3. Self-Destruct (end program)\n4. Drop off a cow\n5. Display Inventory" << std::endl;
     std::cout << "Enter Choice: ";
     int choice;
     std::cin >> choice;
@@ -70,6 +70,36 @@ int main() {
         }
         break;
       }
+      case 4: {
+        std::cout << "1. Drop off random cow\n2. Drop off specific cow" << std::endl;
+        std::cout << "Enter choice: ";
+        int choicee;
+        std::cin >> choicee;
+
+        if (choicee == 1) {
+          dropOffCow();
+        }
+        else {
+          //drop off cow id
+        }
+      }
+      case 5: {
+        if (!ships.empty()) {
+          int shipInddex;
+          std::cout << "Choose a ship to display inventory (1-" << ships.size() << "): ";
+          std::cin >> shipInddex;
+
+          if (shipInddex > 0 && shipInddex <= ships.size()) {
+            for (const auto& pair : ships[shipInddex -1]->getCowInventory()) {
+              std::cout << pair.second << std::endl;
+            }
+          }
+          else {
+            std::cout << "Error: that ship doesn't exist." << std::endl;
+          }
+          break;
+        }
+        
       default: 
         std::cout << "Error: Invalid choice. Please try again." << std::endl;
     }
