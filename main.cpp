@@ -119,7 +119,7 @@ int main() {
 
           if (shipInddex > 0 && shipInddex <= ships.size()) {
             for (const auto& pair : ships[shipInddex -1]->getCowInventory()) {
-              std::cout << pair.second << std::endl;
+              std::cout << *pair.second << std::endl;
             }
           }
           else {
