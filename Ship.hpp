@@ -1,10 +1,11 @@
 #include <vector>
 #include <set>
+#include <map>
 
 class Ship {
   private: 
     std::string shipName;
-    std::vector<Cow*> cowInventory;
+    std::map<std::string, Cow*> cowInventory;
     int numCows;
     std::set<std::string> abductedCows;
 
@@ -13,14 +14,14 @@ class Ship {
 
     ~Ship() {
       std::cout << shipName << " was destroyed..." << std::endl;
-      for (Cow* cow : cowInventory) {
-        delete cow;
+      for (auto& pair : cowInventory) {
+        delete pair.second;
       }
     }
 
     void abductCow(Cow* cow) {
-      if (abductedCows.insert(cow->getName()).second) {
-        cowInventory.push_back(cow);
+      auto result = cowInventory.insert({ cow->getName(), cow });
+      if (result.second) {
         numCows++;
         std::cout << cow->getName() << " was abducted :O" << std::endl;
       }
@@ -29,4 +30,18 @@ class Ship {
         delete cow;
       }
     }
+
+  void dropOffCow() {
+    if (cowInventory.empty()) { 
+      std::cout << "we don't have any cows :(" << std::endl;
+      return;
+    }
+
+    std::cout << "Press Enter to drop off a random cow: ";
+    std::string input;
+    std::cin >> input;
+      
+    cowInventory.erase(cowInventory.size()/2);
+    numCows--;
+    std::cout << "we lost a cow :(" << std::endl;
 };
