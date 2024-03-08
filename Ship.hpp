@@ -54,10 +54,10 @@ class Ship {
       delete it->second;
       cowInventory.erase(it);
       numCows--;
-      std::cout << "Cow number " << cowID << " was dropped off." << std::endl;
+      std::cout << cowID << " was dropped off." << std::endl;
     }
     else {
-      std::cout << "Error: Cow number " << cowID << " doesn't exist :|" << std::endl;
+      std::cout << "Error: " << cowID << " doesn't exist :|" << std::endl;
     }
   }
 
