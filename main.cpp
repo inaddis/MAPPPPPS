@@ -77,10 +77,35 @@ int main() {
         std::cin >> choicee;
 
         if (choicee == 1) {
-          dropOffCow();
+          if(!ships.empty()) {
+            int shippIndex;
+            std::cout << "Choose a ship to drop off a cow (1-" << ships.size() << "): ";
+            std::cin >> shippIndex;
+
+            if (shippIndex > 0 && shippIndex <= ships.size()) {
+              ships[shippIndex - 1]->dropOffCow();
+            }
+            else {
+              std::cout << "Error: that ship doesn't exist :p" << std::endl;
+            }
+          }
         }
-        else {
-          //drop off cow id
+        else if (choicee == 2) {
+          if (!ships.empty()) {
+            int shipindex;
+            std::cout << "Choose a ship to drop off a cow (1-" << ships.size() << "): ";
+            std::cin >> shipindex;
+
+            if (shipindex > 0 && shipindex <= ships.size()) {
+              std::string cowID;
+              std::cout << "Enter the Cow ID to drop off: ";
+              std::cin >> cowID;
+              ships[shipindex - 1]->dropOffCow(cowID);
+            }
+            else {
+              std::cout << "Error: invalid ship index." << std::endl;
+            }
+          }
         }
         break;
       }
