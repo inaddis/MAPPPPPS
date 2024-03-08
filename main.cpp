@@ -82,6 +82,7 @@ int main() {
         else {
           //drop off cow id
         }
+        break;
       }
       case 5: {
         if (!ships.empty()) {
