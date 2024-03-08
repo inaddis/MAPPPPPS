@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <iterator>
+#include <iomanip>
 #include "Cow.hpp"
 #include "Ship.hpp"
 
@@ -130,6 +132,7 @@ int main() {
         std::cout << "Error: Invalid choice. Please try again." << std::endl;
     }
   }
+}
 }
 
 void blowUpShip(Ship* ship) {
