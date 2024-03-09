@@ -22,7 +22,7 @@ Ship::Ship(const std::string& shipName) : shipName(shipName), numCows(0) {}
       }
     }
 
-  const Ship::std::map<std::string, Cow*>& getCowInventory() const {
+  const std::map<std::string, Cow*>& getCowInventory() const {
     return cowInventory;
   }
 
