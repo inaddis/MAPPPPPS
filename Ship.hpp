@@ -22,7 +22,9 @@ class Ship {
 
     void abductCow(Cow* cow);
 
-  const std::map<std::string, Cow*>& getCowInventory() const;
+    const std::map<std::string, Cow*>& getCowInventory() const {
+      return cowInventory;
+  }
 
   void dropOffCow();
 
