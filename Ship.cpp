@@ -23,10 +23,6 @@ Ship::Ship(const std::string& shipName) : shipName(shipName), numCows(0) {}
       }
     }
 
-  const std::map<std::string, Cow*>& getCowInventory() const {
-    return cowInventory;
-  }
-
   void Ship::dropOffCow() {
     if (cowInventory.empty()) { 
       std::cout << "we don't have any cows :(" << std::endl;
