@@ -10,55 +10,16 @@ class Ship {
     std::set<std::string> abductedCows;
 
   public: 
-    Ship(const std::string& shipName) : shipName(shipName), numCows(0) {}
+    Ship(const std::string& shipName);
 
-    ~Ship() {
-      std::cout << shipName << " was destroyed..." << std::endl;
-      for (auto& pair : cowInventory) {
-        delete pair.second;
-      }
-    }
+    ~Ship();
 
-    void abductCow(Cow* cow) {
-      auto result = cowInventory.insert({ cow->getName(), cow });
-      if (result.second) {
-        numCows++;
-        std::cout << cow->getName() << " was abducted :O" << std::endl;
-      }
-      else {
-        std::cout << "Error: There's already a cow with that name >:( abduction failed" << std::endl;
-        delete cow;
-      }
-    }
+    void abductCow(Cow* cow);
 
-  const std::map<std::string, Cow*>& getCowInventory() const {
-    return cowInventory;
-  }
+  const std::map<std::string, Cow*>& getCowInventory() const;
 
-  void dropOffCow() {
-    if (cowInventory.empty()) { 
-      std::cout << "we don't have any cows :(" << std::endl;
-      return;
-    }
+  void dropOffCow();
 
-    auto it = std::next(cowInventory.begin(), cowInventory.size () / 2);
-    delete it->second;
-    cowInventory.erase(it);
-    numCows--;
-    
-    std::cout << "we lost a cow :(" << std::endl;
-  }
-  void dropOffCow(const std::string& cowID) {
-    auto it = cowInventory.find(cowID);
-    if (it != cowInventory.end()) {
-      delete it->second;
-      cowInventory.erase(it);
-      numCows--;
-      std::cout << cowID << " was dropped off." << std::endl;
-    }
-    else {
-      std::cout << "Error: " << cowID << " doesn't exist :|" << std::endl;
-    }
-  }
+  void dropOffCow(const std::string& cowID);
 
 };
