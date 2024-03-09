@@ -1,7 +1,12 @@
+#ifndef SHIP_HPP
+#define SHIP_HPP
+
 #include <vector>
 #include <set>
 #include <map>
 #include <string>
+
+class Cow;
 
 class Ship {
   private: 
@@ -24,3 +29,5 @@ class Ship {
   void dropOffCow(const std::string& cowID);
 
 };
+
+#endif // SHIP_HPP
