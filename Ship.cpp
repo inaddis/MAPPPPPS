@@ -1,4 +1,5 @@
 #include "Ship.hpp"
+#include <iostream>
 
 Ship::Ship(const std::string& shipName) : shipName(shipName), numCows(0) {}
 
