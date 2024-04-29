@@ -5,15 +5,17 @@
 #include <set>
 #include <map>
 #include <string>
+#include "Cow.hpp"
 
 class Cow;
 
 class Ship {
   private: 
     std::string shipName;
-    std::map<std::string, Cow*> cowInventory;
+    // std::map<std::string, Cow*> cowInventory;
     int numCows;
-    std::set<std::string> abductedCows;
+    Cow* cowInventory[100];
+    // std::set<std::string> abductedCows;
 
   public: 
     Ship(const std::string& shipName);
