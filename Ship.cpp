@@ -2,7 +2,11 @@
 #include "Cow.hpp"
 #include <iostream>
 
-Ship::Ship(const std::string& shipName) : shipName(shipName), numCows(0) {}
+Ship::Ship(const std::string& shipName) : shipName(shipName), numCows(0) {
+    for (int i = 0; i < 100; i++) {
+        cowInventory[i] = nullptr;
+    }
+}
 
     Ship::~Ship() {
       std::cout << shipName << " was destroyed..." << std::endl;
