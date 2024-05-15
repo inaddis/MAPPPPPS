@@ -8,7 +8,7 @@ Ship::Ship(const std::string& shipName) : shipName(shipName), numCows(0) {
     }
 }
 
-    Ship::~Ship() {
+Ship::~Ship() {
     std::cout << shipName << " was destroyed..." << std::endl;
     for (int i = 0; i < 100; ++i) {
         if (cowInventory[i] != nullptr) {
@@ -17,7 +17,7 @@ Ship::Ship(const std::string& shipName) : shipName(shipName), numCows(0) {
     }
 }
 
-   void Ship::abductCow(Cow* cow) {
+void Ship::abductCow(Cow* cow) {
     size_t index = cow->getHash();
     if (cowInventory[index] == nullptr) {
         cowInventory[index] = cow;
@@ -29,7 +29,7 @@ Ship::Ship(const std::string& shipName) : shipName(shipName), numCows(0) {
     }
 }
 
-  void Ship::dropOffCow() {
+void Ship::dropOffCow() {
     if (numCows == 0) {
         std::cout << "We don't have any cows :(" << std::endl;
         return;
