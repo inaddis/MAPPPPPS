@@ -10,28 +10,19 @@
 class Cow;
 
 class Ship {
-  private: 
+private:
     std::string shipName;
     int numCows;
     Cow* cowInventory[100];
 
-  public: 
+public:
     Ship(const std::string& shipName);
-
     ~Ship();
 
     void abductCow(Cow* cow);
-
-    const std::map<std::string, Cow*>& getCowInventory() const {
-      return cowInventory;
-  }
-
-  void dropOffCow();
-
-  void dropOffCow(const std::string& cowID);
-
-  void displayInventory() const;
-
+    void dropOffCow();
+    void dropOffCow(const std::string& cowID);
+    void displayInventory() const;
 };
 
 #endif // SHIP_HPP
