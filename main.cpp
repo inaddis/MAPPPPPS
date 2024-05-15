@@ -3,7 +3,7 @@
 #include <iterator>
 #include <iomanip>
 #include "Cow.hpp"
-#include "ship.hpp"
+#include "Ship.hpp"
 
 void blowUpShip(Ship* ship);
 
