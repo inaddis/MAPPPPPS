@@ -12,10 +12,8 @@ class Cow;
 class Ship {
   private: 
     std::string shipName;
-    // std::map<std::string, Cow*> cowInventory;
     int numCows;
     Cow* cowInventory[100];
-    // std::set<std::string> abductedCows;
 
   public: 
     Ship(const std::string& shipName);
@@ -31,6 +29,8 @@ class Ship {
   void dropOffCow();
 
   void dropOffCow(const std::string& cowID);
+
+  void displayInventory() const;
 
 };
 
